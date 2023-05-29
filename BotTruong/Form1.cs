@@ -129,7 +129,7 @@ namespace BotTruong
 
                 string messLow = messageText.ToLower(); // Có lẽ k cần thiết!
 
-
+                // comment
 
 
                 // ----------- BẮT ĐẦU XỬ LÝ -----------------------------------------------------------------------------
