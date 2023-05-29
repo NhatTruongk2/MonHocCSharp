@@ -149,10 +149,31 @@ namespace BotTruong
                     TuongTacDB tt = new TuongTacDB();
                     reply = tt.TimNV("%" + tenNV.Replace(' ','%') +"%");
                 }
-             
+
+                else if (messLow.StartsWith("ncc "))
+                {
+                    string tenNCC = messageText.Substring(4);
+                    TuongTacDB tt = new TuongTacDB();
+                    reply = tt.TimNCC("%" + tenNCC.Replace(' ', '%') + "%");
+                }
+
+                else if (messLow.StartsWith("mh "))
+                {
+                    string tenHANG = messageText.Substring(3);
+                    TuongTacDB tt = new TuongTacDB();
+                    reply = tt.TimMATHANG("%" + tenHANG.Replace(' ', '%') + "%");
+                }
+
+                else if (messLow.StartsWith("kh "))
+                {
+                    string maKH = messageText.Substring(3);
+                    TuongTacDB tt = new TuongTacDB();
+                    reply = tt.TimKH("%" + maKH.Replace(' ', '%') + "%");
+                }
+
                 else // Nếu k phải là thằng nào đặc biệt thì => hát cho Pạn nghe
                 {
-                    reply = "🤡Alo: " + messageText;
+                    reply = "🤡Thằng ngồi trước màn hình vừa chat : " + messageText;
                 }
 
 
@@ -178,17 +199,10 @@ namespace BotTruong
                 //đọc thêm về ParseMode.Html tại: https://core.telegram.org/bots/api#html-style
             }
 
-            // Đây là hàm sử lý lỗi -> có lỗi nó chui vào hàm này
+          
             Task HandlePollingErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
             {
-                //var ErrorMessage = exception switch
-                //{
-                //    ApiRequestException apiRequestException
-                //        => $"Telegram API Error:\n[{apiRequestException.ErrorCode}]\n LỖI NHƯ SAU:\n{apiRequestException.Message}",
-                //     => exception.ToString()
-                //};
-
-                //AddLog(ErrorMessage);
+             
                 Console.WriteLine("Looi roi anh ouwi");
                 AddLog("----       Lỗi rồi -> K rõ lỗi j  -----------");
                 return Task.CompletedTask;
@@ -196,6 +210,11 @@ namespace BotTruong
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtLog_TextChanged(object sender, EventArgs e)
         {
 
         }

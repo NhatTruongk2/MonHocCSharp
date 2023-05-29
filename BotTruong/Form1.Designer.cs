@@ -33,11 +33,12 @@
             // 
             // txtLog
             // 
-            this.txtLog.Location = new System.Drawing.Point(45, 33);
+            this.txtLog.Location = new System.Drawing.Point(23, 34);
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
-            this.txtLog.Size = new System.Drawing.Size(642, 351);
+            this.txtLog.Size = new System.Drawing.Size(638, 345);
             this.txtLog.TabIndex = 0;
+            this.txtLog.TextChanged += new System.EventHandler(this.txtLog_TextChanged);
             // 
             // Form1
             // 

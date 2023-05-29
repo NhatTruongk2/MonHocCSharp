@@ -20,5 +20,30 @@ namespace BotTruong
             string kq = (string) lib.Scalar(cmd);
             return kq;
         }
+
+        public string TimNCC(string v)
+        {
+            SqlCommand cmd = lib.GetCmdNoAction("TimKiemNhaCungCap");
+            cmd.Parameters.Add("@tenNCC", System.Data.SqlDbType.NVarChar, 50).Value = v;
+            string kq = (string)lib.Scalar(cmd);
+            return kq;
+        }
+
+        public string TimMATHANG(string v)
+        {
+            SqlCommand cmd = lib.GetCmdNoAction("TimKiemMatHang");
+            cmd.Parameters.Add("@tenHANG", System.Data.SqlDbType.NVarChar, 50).Value = v;
+            string kq = (string)lib.Scalar(cmd);
+            return kq;
+        }
+
+        public string TimKH(string v)
+        {
+            SqlCommand cmd = lib.GetCmdNoAction("TimKiemkhachHang");
+            cmd.Parameters.Add("@maKH", System.Data.SqlDbType.NVarChar, 50).Value = v;
+            string kq = (string)lib.Scalar(cmd);
+            return kq;
+        }
+
     }
 }
