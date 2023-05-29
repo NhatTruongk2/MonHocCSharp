@@ -81,7 +81,7 @@ namespace BotTruong
 
             Task<User> me = botClient.GetMeAsync(); // Được sử dụng để gửi một yêu cầu đến Telegram API để lấy thông tin về bot hiện tại.
             // => Nắm đầu thằng bot rồi.
-            AddLog($"Thằng bot: @{me.Result.Username}");
+            AddLog($"Triệu hồi thằng bot: @{me.Result.Username}");
 
             //async lập trình bất đồng bộ
             // Trả về đối tượng Task ?? 
@@ -155,6 +155,14 @@ namespace BotTruong
                     string tenNCC = messageText.Substring(4);
                     TuongTacDB tt = new TuongTacDB();
                     reply = tt.TimNCC("%" + tenNCC.Replace(' ', '%') + "%");
+                    // Thêm ký tự xuống dòng vào reply
+                    reply = reply.Replace("\n", Environment.NewLine);
+                }
+                else if (messLow.StartsWith("hello"))
+                {
+                    reply = "Xin chào Trần Nhật Trường!😍😍";
+                    // Thêm ký tự xuống dòng vào reply
+                    reply = reply.Replace("\n", Environment.NewLine);
                 }
 
                 else if (messLow.StartsWith("mh "))
@@ -162,6 +170,8 @@ namespace BotTruong
                     string tenHANG = messageText.Substring(3);
                     TuongTacDB tt = new TuongTacDB();
                     reply = tt.TimMATHANG("%" + tenHANG.Replace(' ', '%') + "%");
+                    // Thêm ký tự xuống dòng vào reply
+                    reply = reply.Replace("\n", Environment.NewLine);
                 }
 
                 else if (messLow.StartsWith("kh "))
@@ -169,11 +179,15 @@ namespace BotTruong
                     string maKH = messageText.Substring(3);
                     TuongTacDB tt = new TuongTacDB();
                     reply = tt.TimKH("%" + maKH.Replace(' ', '%') + "%");
+
+                    // Thêm ký tự xuống dòng vào reply
+                    reply = reply.Replace("\n", Environment.NewLine);
                 }
 
                 else // Nếu k phải là thằng nào đặc biệt thì => hát cho Pạn nghe
                 {
                     reply = "🤡Thằng ngồi trước màn hình vừa chat : " + messageText;
+                    reply = reply.Replace("\n", Environment.NewLine);
                 }
 
 
@@ -215,6 +229,16 @@ namespace BotTruong
         }
 
         private void txtLog_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
